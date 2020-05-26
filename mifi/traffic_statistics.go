@@ -13,9 +13,9 @@ type TrafficStatistics struct {
 }
 
 type trafficStatisticsResponse struct {
-	CurrentConnectTime int   `xml="CurrentConnectTime"`
-	CurrentUpload      int32 `xml="CurrentUpload"`
-	CurrentDownload    int32 `xml="CurrentDownload"`
+	CurrentConnectTime int    `xml="CurrentConnectTime"`
+	CurrentUpload      uint64 `xml="CurrentUpload"`
+	CurrentDownload    uint64 `xml="CurrentDownload"`
 }
 
 func (m Mifi) TrafficStatistics() (*TrafficStatistics, error) {
@@ -53,6 +53,6 @@ func (m Mifi) TrafficStatistics() (*TrafficStatistics, error) {
 	return nil, fmt.Errorf("XML wasn't valid: %s", string(responseData))
 }
 
-func bytesToMB(input int32) float32 {
+func bytesToMB(input uint64) float32 {
 	return float32(input) / 1024 / 1024
 }
