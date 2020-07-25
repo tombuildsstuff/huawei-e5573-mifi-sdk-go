@@ -8,6 +8,7 @@ import (
 
 type Status struct {
 	CurrentBatteryPercentage     int
+	BatteryCharging              bool
 	MaxSignalBars                int
 	CurrentSignalBars            int
 	NumberOfUsersConnectedToWifi int

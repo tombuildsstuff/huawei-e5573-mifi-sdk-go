@@ -32,7 +32,6 @@ var _ = Describe("Status", func() {
 			httpmock.NewStringResponder(200, `<?xml version="1.0" encoding="UTF-8"?>
 			<response>
 			  <BatteryPercent>42</BatteryPercent>
-			  <BatteryStatus>1</BatteryStatus>
 				<CurrentWifiUser>11</CurrentWifiUser>
 				<SignalIcon>5</SignalIcon>
 			</response>
@@ -51,10 +50,6 @@ var _ = Describe("Status", func() {
 
 	It("has the battery percentage", func() {
 		Expect(status.CurrentBatteryPercentage).To(Equal(42))
-	})
-
-	It("has the battery charging status", func() {
-		Expect(status.BatteryCharging).To(Equal(true))
 	})
 
 	It("has the number of WiFi users", func() {
